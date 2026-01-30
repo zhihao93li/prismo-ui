@@ -38,9 +38,19 @@ export interface ToastProviderProps {
 export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
   const [toasts, setToasts] = useState<Toast[]>([])
 
+  const removeToast = useCallback((id: number) => {
+    console.log('Removing toast:', id)
+    setToasts((prev) => prev.filter((toast) => toast.id !== id))
+  }, [])
+
   const addToast = useCallback((message: string, type: ToastType = 'info', duration: number = 3000) => {
     const id = Date.now()
-    setToasts((prev) => [...prev, { id, message, type }])
+    console.log('Adding toast:', { id, message, type, duration })
+    setToasts((prev) => {
+      const newToasts = [...prev, { id, message, type }]
+      console.log('Current toasts:', newToasts)
+      return newToasts
+    })
 
     if (duration > 0) {
       setTimeout(() => {
@@ -49,11 +59,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
     }
 
     return id
-  }, [])
-
-  const removeToast = useCallback((id: number) => {
-    setToasts((prev) => prev.filter((toast) => toast.id !== id))
-  }, [])
+  }, [removeToast])
 
   const toast: ToastContextValue = {
     success: (message, duration) => addToast(message, 'success', duration),
@@ -62,13 +68,16 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
     info: (message, duration) => addToast(message, 'info', duration),
   }
 
+  console.log('ToastProvider rendering, toasts count:', toasts.length, toasts)
+
   return (
     <ToastContext.Provider value={toast}>
       {children}
       <div className={styles.toastContainer}>
-        <AnimatePresence>
+        <AnimatePresence mode="popLayout">
           {toasts.map((t) => {
             const Icon = icons[t.type]
+            console.log('Rendering toast:', t)
             return (
               <m.div
                 key={t.id}

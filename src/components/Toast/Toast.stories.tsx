@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ToastProvider, useToast } from './Toast'
-import { Button } from '../Button'
 
 const meta: Meta<typeof ToastProvider> = {
   title: 'Components/Toast',
@@ -18,51 +17,100 @@ type Story = StoryObj<typeof ToastProvider>
 function ToastDemo() {
   const toast = useToast()
 
+  const buttonStyle: React.CSSProperties = {
+    padding: '12px 24px',
+    borderRadius: '12px',
+    border: 'none',
+    cursor: 'pointer',
+    fontSize: '15px',
+    fontWeight: '600',
+    transition: 'all 0.2s',
+    minWidth: '200px',
+  }
+
+  const primaryStyle: React.CSSProperties = {
+    ...buttonStyle,
+    background: 'linear-gradient(135deg, rgb(138, 67, 225), rgb(213, 17, 253))',
+    color: 'white',
+  }
+
+  const secondaryStyle: React.CSSProperties = {
+    ...buttonStyle,
+    background: 'rgb(244, 242, 241)',
+    color: 'rgb(17, 17, 17)',
+  }
+
   return (
     <div style={{ padding: '40px', display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
       <h2>Toast 通知示例</h2>
       <p>点击按钮触发不同类型的通知：</p>
       
-      <Button onClick={() => toast.success('操作成功！')} variant="primary">
+      <button 
+        style={primaryStyle}
+        onClick={() => {
+          console.log('Success button clicked')
+          toast.success('操作成功！')
+        }}
+      >
         Success Toast
-      </Button>
+      </button>
       
-      <Button onClick={() => toast.error('发生错误，请重试')} variant="secondary">
+      <button 
+        style={secondaryStyle}
+        onClick={() => {
+          console.log('Error button clicked')
+          toast.error('发生错误，请重试')
+        }}
+      >
         Error Toast
-      </Button>
+      </button>
       
-      <Button onClick={() => toast.warning('请注意：这是警告信息')} variant="outline">
+      <button 
+        style={secondaryStyle}
+        onClick={() => {
+          console.log('Warning button clicked')
+          toast.warning('请注意：这是警告信息')
+        }}
+      >
         Warning Toast
-      </Button>
+      </button>
       
-      <Button onClick={() => toast.info('这是一条提示信息')} variant="ghost">
+      <button 
+        style={secondaryStyle}
+        onClick={() => {
+          console.log('Info button clicked')
+          toast.info('这是一条提示信息')
+        }}
+      >
         Info Toast
-      </Button>
+      </button>
 
-      <Button 
+      <h3 style={{ marginTop: '20px' }}>多条通知</h3>
+      
+      <button 
+        style={primaryStyle}
         onClick={() => {
           toast.success('第一条通知')
           setTimeout(() => toast.info('第二条通知'), 300)
           setTimeout(() => toast.warning('第三条通知'), 600)
-        }} 
-        variant="light"
+        }}
       >
         多条通知
-      </Button>
+      </button>
 
-      <Button 
-        onClick={() => toast.success('这条通知会持续 10 秒', 10000)} 
-        variant="primary"
+      <button 
+        style={primaryStyle}
+        onClick={() => toast.success('这条通知会持续 10 秒', 10000)}
       >
         长时间通知 (10s)
-      </Button>
+      </button>
 
-      <Button 
-        onClick={() => toast.info('这是一条很长的通知消息，用来测试文本换行和布局是否正常工作。Lorem ipsum dolor sit amet.', 5000)} 
-        variant="outline"
+      <button 
+        style={secondaryStyle}
+        onClick={() => toast.info('这是一条很长的通知消息，用来测试文本换行和布局是否正常工作。Lorem ipsum dolor sit amet.', 5000)}
       >
         长文本通知
-      </Button>
+      </button>
     </div>
   )
 }
@@ -76,13 +124,14 @@ export const Default: Story = {
   ),
 }
 
-// 所有类型
+// 所有类型一起显示
 export const AllTypes: Story = {
   render: () => {
     function AllTypesDemo() {
       const toast = useToast()
       
       const showAllTypes = () => {
+        console.log('Showing all types')
         toast.success('操作成功完成！')
         setTimeout(() => toast.error('发生错误，请重试'), 400)
         setTimeout(() => toast.warning('注意：库存不足'), 800)
@@ -91,7 +140,21 @@ export const AllTypes: Story = {
 
       return (
         <div style={{ padding: '40px' }}>
-          <Button onClick={showAllTypes}>显示所有类型</Button>
+          <button 
+            onClick={showAllTypes}
+            style={{
+              padding: '14px 32px',
+              borderRadius: '12px',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '16px',
+              fontWeight: '600',
+              background: 'linear-gradient(135deg, rgb(138, 67, 225), rgb(213, 17, 253))',
+              color: 'white',
+            }}
+          >
+            显示所有类型
+          </button>
         </div>
       )
     }
@@ -113,7 +176,7 @@ export const MobileView: Story = {
   ),
   parameters: {
     viewport: {
-      defaultViewport: 'mobile1',
+      defaultViewport: 'mobile',
     },
   },
 }
@@ -129,47 +192,5 @@ export const TabletView: Story = {
     viewport: {
       defaultViewport: 'tablet',
     },
-  },
-}
-
-// 真实场景：表单提交
-export const FormSubmission: Story = {
-  render: () => {
-    function FormDemo() {
-      const toast = useToast()
-      
-      const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        toast.info('正在提交...')
-        
-        // 模拟 API 请求
-        setTimeout(() => {
-          const success = Math.random() > 0.3
-          if (success) {
-            toast.success('表单提交成功！')
-          } else {
-            toast.error('提交失败，请检查网络连接')
-          }
-        }, 1500)
-      }
-
-      return (
-        <div style={{ padding: '40px', maxWidth: '500px' }}>
-          <h2>用户注册表单</h2>
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '20px' }}>
-            <input type="text" placeholder="用户名" style={{ padding: '12px', borderRadius: '8px', border: '1px solid #ccc' }} />
-            <input type="email" placeholder="邮箱" style={{ padding: '12px', borderRadius: '8px', border: '1px solid #ccc' }} />
-            <input type="password" placeholder="密码" style={{ padding: '12px', borderRadius: '8px', border: '1px solid #ccc' }} />
-            <Button type="submit">提交注册</Button>
-          </form>
-        </div>
-      )
-    }
-
-    return (
-      <ToastProvider>
-        <FormDemo />
-      </ToastProvider>
-    )
   },
 }
