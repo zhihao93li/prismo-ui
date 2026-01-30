@@ -1,0 +1,93 @@
+/* BirthInfoForm - Complex Form Example */
+
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.sectionTitle {
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: var(--grey-50);
+  margin-bottom: var(--spacing-xs);
+}
+
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.dateRow > div {
+  flex: 1;
+  min-width: 0; /* Allow shrinking */
+}
+
+.timeRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sm);
+}
+
+.locationRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--spacing-sm);
+}
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  .formGrid {
+    gap: var(--spacing-xl);
+  }
+  
+  .row {
+    gap: var(--spacing-lg);
+  }
+  
+  .dateRow {
+    gap: var(--spacing-md);
+  }
+  
+  .timeRow {
+    gap: var(--spacing-md);
+  }
+  
+  .locationRow {
+    gap: var(--spacing-md);
+  }
+}
+
+/* Mobile (<768px) */
+@media (max-width: 767px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .dateRow {
+    flex-wrap: nowrap;
+    gap: var(--spacing-xs);
+  }
+
+  /* Year selector needs more space */
+  .dateRow > div:first-child {
+    flex: 1.2;
+  }
+
+  .locationRow {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
