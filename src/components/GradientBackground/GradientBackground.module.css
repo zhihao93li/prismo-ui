@@ -1,0 +1,173 @@
+/**
+ * GradientBackground Component - Responsive Design
+ */
+
+.background {
+  position: absolute;
+  top: 0;
+  left: -120px;
+  right: -120px;
+  bottom: 0;
+  z-index: 0;
+  background-color: rgb(244, 242, 241);
+  overflow: hidden;
+}
+
+/* Grid Lines */
+.gridLines {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: normal;
+}
+
+.gridLine {
+  flex: 1 1 0;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(270deg, rgba(242, 240, 238, 0.2) 0%, rgba(242, 240, 238, 0) 100%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+
+.gridLine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.gridLine:last-child::after {
+  display: none;
+}
+
+/* Glow Effects */
+.leftAbstract,
+.rightAbstract {
+  position: absolute;
+  width: 378px;
+  height: 571px;
+  transition: all 0.5s ease;
+}
+
+.leftAbstract {
+  top: 0;
+  left: -80px;
+}
+
+.rightAbstract {
+  top: 0;
+  right: -80px;
+  transform: rotate(180deg);
+}
+
+.ellipseGroup {
+  position: absolute;
+  width: 378px;
+  height: 571px;
+  filter: blur(120px);
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.ellipseGroup:nth-child(2) {
+  filter: blur(100px);
+  opacity: 1;
+}
+
+.ellipse {
+  position: absolute;
+  width: 207px;
+  height: 207px;
+  border-radius: 50%;
+}
+
+/* Gradients */
+.bgGradientTop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(251, 250, 249) 0%, rgba(251, 250, 249, 0) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.bgGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(251, 250, 249) 0%, rgba(251, 250, 249, 0) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Noise Texture */
+.noise {
+  position: absolute;
+  inset: 0;
+  background-size: 110px 110px;
+  background-repeat: repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Variants */
+.animated .leftAbstract {
+  animation: floatLeft 10s ease-in-out infinite;
+}
+
+.animated .rightAbstract {
+  animation: floatRight 12s ease-in-out infinite;
+}
+
+.expanded {
+  left: -200px;
+  right: -200px;
+}
+
+@keyframes floatLeft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes floatRight {
+  0%, 100% {
+    transform: rotate(180deg) translateY(0);
+  }
+  50% {
+    transform: rotate(180deg) translateY(-30px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .background {
+    left: -60px;
+    right: -60px;
+  }
+
+  .leftAbstract,
+  .rightAbstract {
+    width: 250px;
+    height: 380px;
+  }
+
+  .ellipseGroup {
+    width: 250px;
+    height: 380px;
+    filter: blur(80px);
+  }
+
+  .ellipse {
+    width: 150px;
+    height: 150px;
+  }
+}

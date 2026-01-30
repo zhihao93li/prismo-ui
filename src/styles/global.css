@@ -1,0 +1,215 @@
+/* Prismo Design System - Global Styles */
+@import './variables.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Prevent font size adjustment on orientation change (iOS) */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--light-95);
+  color: var(--dark-7);
+  font-size: var(--text-medium);
+  line-height: var(--line-height-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent text selection on touch devices during interactions */
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  /* Remove default touch delay on iOS */
+  touch-action: manipulation;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ========== Typography Classes ========== */
+.heading-1 {
+  font-size: var(--heading-1);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+}
+
+.heading-2 {
+  font-size: var(--heading-2);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+}
+
+.heading-3 {
+  font-size: var(--heading-3);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+}
+
+.heading-4 {
+  font-size: var(--heading-4);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.heading-5 {
+  font-size: var(--heading-5);
+  font-weight: 600;
+  line-height: var(--line-height-normal);
+}
+
+.text-small {
+  font-size: var(--text-small);
+  font-weight: 400;
+  line-height: var(--line-height-normal);
+}
+
+.text-medium {
+  font-size: var(--text-medium);
+  font-weight: 400;
+  line-height: var(--line-height-normal);
+}
+
+.text-large {
+  font-size: var(--text-large);
+  font-weight: 400;
+  line-height: var(--line-height-normal);
+}
+
+/* ========== Layout Utilities ========== */
+.container {
+  width: 100%;
+  max-width: var(--max-width-2xl);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+.section {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--spacing-4xl) var(--spacing-xl);
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-xs {
+  gap: var(--spacing-xs);
+}
+
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.gap-lg {
+  gap: var(--spacing-lg);
+}
+
+.gap-xl {
+  gap: var(--spacing-xl);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* ========== Color Utilities ========== */
+.text-grey {
+  color: var(--grey-50);
+}
+
+.text-dark {
+  color: var(--dark-7);
+}
+
+.bg-white {
+  background-color: var(--absolute-white);
+}
+
+.bg-light {
+  background-color: var(--light-94);
+}
+
+.bg-dark {
+  background-color: var(--dark-7);
+}
+
+/* ========== Accessibility ========== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}

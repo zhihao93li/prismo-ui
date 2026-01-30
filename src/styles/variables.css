@@ -1,0 +1,132 @@
+/* Prismo Design System - CSS Variables */
+:root {
+  /* ========== Responsive Breakpoints ========== */
+  --breakpoint-mobile: 375px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  
+  /* ========== Light Colors ========== */
+  --light-85: rgb(222, 216, 211);
+  --light-90: rgb(232, 228, 226);
+  --light-94: rgb(241, 240, 238);
+  --light-95: rgb(244, 242, 241);
+  --light-96: rgb(246, 245, 244);
+  
+  /* ========== Dark Colors ========== */
+  --dark-7: rgb(17, 17, 17);
+  --dark-12: rgb(30, 30, 30);
+  
+  /* ========== Grey Colors ========== */
+  --grey-24: rgb(61, 61, 61);
+  --grey-30: rgb(76, 76, 76);
+  --grey-50: rgb(128, 128, 128);
+  
+  /* ========== Absolute Colors ========== */
+  --absolute-white: rgb(255, 255, 255);
+  
+  /* ========== Accent Colors ========== */
+  --accent-red: rgb(255, 47, 47);
+  --accent-orange: rgb(239, 123, 22);
+  --accent-purple: rgb(138, 67, 225);
+  --accent-pink: rgb(213, 17, 253);
+  --accent-green: rgb(39, 179, 44);
+  --accent-green-light: rgb(93, 201, 131);
+  --accent-blue: rgb(94, 106, 210);
+  --accent-yellow: rgb(242, 190, 0);
+  
+  /* ========== Typography ========== */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Font Sizes - Mobile First */
+  --text-small: 14px;
+  --text-medium: 16px;
+  --text-large: 17px;
+  --heading-5: 18px;
+  --heading-4: 24px;
+  --heading-3: 28px;
+  --heading-2: 32px;
+  --heading-1: 36px;
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* ========== Spacing - Mobile First ========== */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+  
+  /* ========== Border Radius ========== */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 100px;
+  
+  /* ========== Shadows ========== */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+  
+  /* ========== Touch Targets ========== */
+  --touch-target-min: 44px; /* iOS Human Interface Guidelines */
+  
+  /* ========== Max Widths ========== */
+  --max-width-sm: 700px;
+  --max-width-md: 900px;
+  --max-width-lg: 1030px;
+  --max-width-xl: 1200px;
+  --max-width-2xl: 1240px;
+}
+
+/* ========== Tablet Breakpoint (768px+) ========== */
+@media (min-width: 768px) {
+  :root {
+    /* Adjusted font sizes for tablet */
+    --text-small: 15px;
+    --text-medium: 17px;
+    --text-large: 18px;
+    --heading-5: 20px;
+    --heading-4: 28px;
+    --heading-3: 36px;
+    --heading-2: 44px;
+    --heading-1: 48px;
+    
+    /* Adjusted spacing for tablet */
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+    --spacing-4xl: 80px;
+  }
+}
+
+/* ========== Desktop Breakpoint (1024px+) ========== */
+@media (min-width: 1024px) {
+  :root {
+    /* Adjusted font sizes for desktop */
+    --text-small: 16px;
+    --text-medium: 17px;
+    --text-large: 18px;
+    --heading-5: 20px;
+    --heading-4: 32px;
+    --heading-3: 40px;
+    --heading-2: 52px;
+    --heading-1: 64px;
+    
+    /* Adjusted spacing for desktop */
+    --spacing-lg: 24px;
+    --spacing-xl: 40px;
+    --spacing-2xl: 60px;
+    --spacing-3xl: 80px;
+    --spacing-4xl: 100px;
+  }
+}

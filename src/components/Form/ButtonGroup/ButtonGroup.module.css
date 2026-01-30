@@ -1,0 +1,143 @@
+/* ButtonGroup Component - Responsive Design (Mobile-first) */
+
+.buttonGroup {
+  display: flex; /* Mobile: 默认全宽 */
+  position: relative;
+  background: var(--light-94);
+  border-radius: var(--radius-full);
+  padding: 4px;
+  width: 100%; /* Mobile: 全宽 */
+}
+
+.fullWidth {
+  display: flex;
+  width: 100%;
+}
+
+.fullWidth .button {
+  flex: 1;
+}
+
+/* 滑动指示器 */
+.slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: calc(100% - 8px);
+  background: var(--dark-7);
+  border-radius: var(--radius-full);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 0;
+}
+
+.button {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  color: var(--grey-50);
+  border-radius: var(--radius-full);
+  transition: color 0.25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  background: transparent;
+  flex: 1; /* Mobile: 平均分配空间 */
+  min-height: 44px; /* Mobile: 最小触摸区域 */
+}
+
+.button.active {
+  color: var(--absolute-white);
+}
+
+.button:active:not(.active) {
+  color: var(--dark-7);
+}
+
+/* Variants */
+.default .slider {
+  background: var(--dark-7);
+}
+
+.light {
+  background: var(--absolute-white);
+}
+
+.light .slider {
+  background: var(--dark-7);
+}
+
+/* Sizes - Mobile First */
+.small .button {
+  padding: 10px 16px;
+  font-size: 14px;
+  min-height: 40px;
+}
+
+.medium .button {
+  padding: 12px 20px;
+  font-size: 15px;
+  min-height: 44px;
+}
+
+.large .button {
+  padding: 14px 24px;
+  font-size: 16px;
+  min-height: 48px;
+}
+
+/* Tablet (768px+): 可以不全宽 */
+@media (min-width: 768px) {
+  .buttonGroup {
+    display: inline-flex; /* Tablet: 可以不全宽 */
+    width: auto;
+  }
+
+  .fullWidth {
+    width: 100%;
+  }
+
+  .button {
+    flex: initial;
+    min-height: auto;
+  }
+
+  .button:hover:not(.active) {
+    color: var(--dark-7);
+  }
+
+  .small .button {
+    padding: 8px 16px;
+    min-height: auto;
+  }
+
+  .medium .button {
+    padding: 12px 24px;
+    min-height: auto;
+  }
+
+  .large .button {
+    padding: 14px 28px;
+    min-height: auto;
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .small .button {
+    padding: 9px 18px;
+  }
+
+  .medium .button {
+    padding: 13px 26px;
+  }
+
+  .large .button {
+    padding: 15px 30px;
+  }
+}

@@ -1,0 +1,138 @@
+.card {
+  background: var(--absolute-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+/* ========== Variants ========== */
+.default {
+  background: var(--absolute-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.outlined {
+  background: var(--absolute-white);
+  border: 1px solid var(--light-90);
+  box-shadow: none;
+}
+
+.gradient {
+  position: relative;
+  background: var(--absolute-white);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* Top Gradient Line */
+.gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-purple), var(--accent-orange));
+  z-index: 1;
+}
+
+.dark {
+  background: var(--dark-7);
+  color: var(--absolute-white);
+  border-color: var(--dark-12);
+}
+
+/* ========== Padding - Mobile First ========== */
+.padding-none {
+  padding: 0;
+}
+
+.padding-small {
+  padding: 12px;
+}
+
+.padding-medium {
+  padding: 16px;
+}
+
+.padding-large {
+  padding: 20px;
+}
+
+/* ========== Tablet (768px+) ========== */
+@media (min-width: 768px) {
+  .padding-small {
+    padding: 14px;
+  }
+
+  .padding-medium {
+    padding: 20px;
+  }
+
+  .padding-large {
+    padding: 28px;
+  }
+}
+
+/* ========== Desktop (1024px+) ========== */
+@media (min-width: 1024px) {
+  .padding-small {
+    padding: 16px;
+  }
+
+  .padding-medium {
+    padding: 24px;
+  }
+
+  .padding-large {
+    padding: 40px;
+  }
+}
+
+/* ========== Hover Effect ========== */
+.hover {
+  cursor: default;
+}
+
+.hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.hover:active {
+  transform: translateY(-1px);
+}
+
+/* ========== Clickable ========== */
+.clickable {
+  cursor: pointer;
+  /* Remove tap highlight on mobile */
+  -webkit-tap-highlight-color: transparent;
+  /* Faster touch response */
+  touch-action: manipulation;
+}
+
+.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.clickable:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+/* ========== Accessibility ========== */
+.clickable:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* ========== Touch Device Optimization ========== */
+@media (pointer: coarse) {
+  /* Larger touch targets on touch devices */
+  .clickable {
+    min-height: var(--touch-target-min);
+  }
+}

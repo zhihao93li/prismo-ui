@@ -1,0 +1,12 @@
+/* Prismo UI - Main Styles Entry */
+
+/* Import design system variables and global styles */
+@import './styles/variables.css';
+@import './styles/global.css';
+
+/* 
+ * Note: Component-specific styles are automatically included 
+ * when you import the components via CSS Modules.
+ * 
+ * This file only includes the design system foundation.
+ */

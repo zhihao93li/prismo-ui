@@ -1,0 +1,86 @@
+/* Checkbox Component - Responsive Design (Mobile-first) */
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px; /* Mobile: 更大的间距 */
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding: 4px 0; /* Mobile: 增加触摸区域 */
+}
+
+.checkbox.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px; /* Mobile: 更大的触摸区域 */
+  height: 24px;
+  border: 2px solid var(--light-85);
+  border-radius: var(--radius-sm);
+  background: var(--absolute-white);
+  color: var(--absolute-white);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.checkbox:active:not(.disabled) .box {
+  border-color: var(--grey-50);
+  transform: scale(0.95);
+}
+
+.box.checked {
+  background: var(--dark-7);
+  border-color: var(--dark-7);
+}
+
+.label {
+  font-size: 15px; /* Mobile: 稍小字体 */
+  color: var(--dark-7);
+  line-height: 1.4;
+}
+
+.input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+  z-index: -1;
+}
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  .checkbox {
+    gap: 10px;
+    padding: 0;
+  }
+
+  .box {
+    width: 22px;
+    height: 22px;
+  }
+
+  .checkbox:hover:not(.disabled) .box {
+    border-color: var(--grey-50);
+  }
+
+  .label {
+    font-size: 16px;
+  }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  .label {
+    font-size: 16px;
+  }
+}

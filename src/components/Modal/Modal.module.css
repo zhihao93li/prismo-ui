@@ -1,0 +1,173 @@
+/* Modal Component - Responsive Design (Mobile-first) */
+
+.modalWrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end; /* Mobile: 底部弹出 */
+  justify-content: center;
+  padding: 0; /* Mobile: 无边距 */
+  z-index: 1000;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  position: relative;
+  background: var(--absolute-white);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0; /* Mobile: 顶部圆角 */
+  max-height: 90vh; /* Mobile: 90% 高度 */
+  width: 100%; /* Mobile: 全宽 */
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  
+  /* 滚动条优化 */
+  scrollbar-width: thin;
+  scrollbar-color: var(--grey-80) transparent;
+}
+
+.modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: var(--grey-80);
+  border-radius: 3px;
+}
+
+/* Sizes (Mobile-first: 全宽) */
+.small,
+.medium,
+.large,
+.full {
+  width: 100%;
+  max-width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 16px 0; /* Mobile: 较小的 padding */
+  flex-shrink: 0; /* 防止标题被压缩 */
+}
+
+.title {
+  font-size: 20px; /* Mobile: 较小字体 */
+  font-weight: 600;
+  color: var(--dark-7);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; /* Mobile: 更大的触摸区域 */
+  height: 44px;
+  border-radius: var(--radius-full);
+  color: var(--grey-50);
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.closeButton:active {
+  background: var(--light-94);
+  color: var(--dark-7);
+}
+
+.content {
+  padding: 20px 16px; /* Mobile: 较小的 padding */
+}
+
+/* Tablet (768px+): 居中弹出 */
+@media (min-width: 768px) {
+  .modalWrapper {
+    align-items: center; /* Tablet: 居中 */
+    padding: 20px;
+  }
+
+  .modal {
+    border-radius: var(--radius-xl); /* Tablet: 四周圆角 */
+    max-height: calc(100vh - 40px);
+  }
+
+  .small {
+    max-width: 420px;
+  }
+
+  .medium {
+    max-width: 560px;
+  }
+
+  .large {
+    max-width: 760px;
+  }
+
+  .full {
+    max-width: 90vw;
+  }
+
+  .header {
+    padding: 24px 24px 0;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .closeButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .closeButton:hover {
+    background: var(--light-94);
+    color: var(--dark-7);
+  }
+
+  .content {
+    padding: 24px;
+  }
+}
+
+/* Desktop (1024px+): 最大尺寸 */
+@media (min-width: 1024px) {
+  .modalWrapper {
+    padding: 40px;
+  }
+
+  .small {
+    max-width: 480px;
+  }
+
+  .medium {
+    max-width: 640px;
+  }
+
+  .large {
+    max-width: 900px;
+  }
+
+  .full {
+    max-width: 95vw;
+  }
+
+  .header {
+    padding: 32px 32px 0;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .content {
+    padding: 32px;
+  }
+}
