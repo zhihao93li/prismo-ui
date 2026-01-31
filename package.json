@@ -12,7 +12,11 @@
       "import": "./dist/tafu-ui-design.mjs",
       "require": "./dist/tafu-ui-design.cjs"
     },
-    "./styles": "./dist/tafu-ui-design.css",
+    "./styles": {
+      "default": "./dist/tafu-ui-design.css"
+    },
+    "./styles.css": "./dist/tafu-ui-design.css",
+    "./dist/*": "./dist/*",
     "./package.json": "./package.json"
   },
   "files": [
