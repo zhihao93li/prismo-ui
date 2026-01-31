@@ -171,11 +171,11 @@ export const BirthInfoForm: React.FC<BirthInfoFormProps> = ({
   }
 
   // Province change -> reset city & district
-  const handleProvinceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleProvinceChange = (e: React.ChangeEvent<HTMLSelectElement> | { target: { name: string; value: string | number } }) => {
     onChange({
       ...value,
       location: {
-        province: e.target.value,
+        province: String(e.target.value),
         city: '',
         district: '',
       },
@@ -183,24 +183,24 @@ export const BirthInfoForm: React.FC<BirthInfoFormProps> = ({
   }
 
   // City change -> reset district
-  const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement> | { target: { name: string; value: string | number } }) => {
     onChange({
       ...value,
       location: {
         ...value.location,
-        city: e.target.value,
+        city: String(e.target.value),
         district: '',
       },
     })
   }
 
   // District change
-  const handleDistrictChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleDistrictChange = (e: React.ChangeEvent<HTMLSelectElement> | { target: { name: string; value: string | number } }) => {
     onChange({
       ...value,
       location: {
         ...value.location,
-        district: e.target.value,
+        district: String(e.target.value),
       },
     })
   }
@@ -249,19 +249,19 @@ export const BirthInfoForm: React.FC<BirthInfoFormProps> = ({
           <FormSelect
             options={years}
             value={value.birthYear}
-            onChange={(e) => handleChange('birthYear', parseInt(e.target.value))}
+            onChange={(e) => handleChange('birthYear', parseInt(String(e.target.value)))}
             error={errors.birthYear}
           />
           <FormSelect
             options={months}
             value={value.birthMonth}
-            onChange={(e) => handleChange('birthMonth', parseInt(e.target.value))}
+            onChange={(e) => handleChange('birthMonth', parseInt(String(e.target.value)))}
             error={errors.birthMonth}
           />
           <FormSelect
             options={days}
             value={value.birthDay}
-            onChange={(e) => handleChange('birthDay', parseInt(e.target.value))}
+            onChange={(e) => handleChange('birthDay', parseInt(String(e.target.value)))}
             error={errors.birthDay}
           />
         </div>
@@ -274,14 +274,14 @@ export const BirthInfoForm: React.FC<BirthInfoFormProps> = ({
           <FormSelect
             options={hours}
             value={value.birthHour}
-            onChange={(e) => handleChange('birthHour', parseInt(e.target.value))}
+            onChange={(e) => handleChange('birthHour', parseInt(String(e.target.value)))}
             error={errors.birthHour}
           />
           <FormSelect
             options={minutes}
             value={value.birthMinute}
             onChange={(e) =>
-              handleChange('birthMinute', parseInt(e.target.value))
+              handleChange('birthMinute', parseInt(String(e.target.value)))
             }
             error={errors.birthMinute}
           />
