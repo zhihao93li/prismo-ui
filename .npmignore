@@ -1,0 +1,38 @@
+# Source files
+src/
+*.stories.tsx
+*.test.tsx
+*.test.ts
+
+# Config files
+.storybook/
+tsconfig.json
+vite.config.ts
+.eslintrc.*
+.prettierrc*
+
+# Development files
+node_modules/
+.git/
+.gitignore
+.DS_Store
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Build artifacts
+.vite/
+storybook-static/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

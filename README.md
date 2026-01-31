@@ -1,6 +1,6 @@
-# @prismo/ui
+# tafu-ui-design
 
-现代化的 React 组件库，包含 Prismo Design System 的所有基础 UI 组件。
+现代化的 React 组件库，包含 Tafu Design System 的所有基础 UI 组件。
 
 ## ✨ 特性
 
@@ -15,11 +15,11 @@
 ## 📦 安装
 
 ```bash
-npm install @prismo/ui
+npm install tafu-ui-design
 # or
-yarn add @prismo/ui
+yarn add tafu-ui-design
 # or
-pnpm add @prismo/ui
+pnpm add tafu-ui-design
 ```
 
 ### Peer Dependencies
@@ -31,8 +31,8 @@ npm install react react-dom framer-motion @phosphor-icons/react
 ## 🚀 快速开始
 
 ```tsx
-import { Button, Card, Toast Provider, useToast } from '@prismo/ui'
-import '@prismo/ui/styles'
+import { Button, Card, ToastProvider, useToast } from 'tafu-ui-design'
+import 'tafu-ui-design/styles'
 
 function App() {
   const toast = useToast()
@@ -95,7 +95,7 @@ padding: 12px 16px;
 ## 🪝 Hooks
 
 ```tsx
-import { useBreakpoint, useTouchDevice } from '@prismo/ui'
+import { useBreakpoint, useTouchDevice } from 'tafu-ui-design'
 
 function Component() {
   const breakpoint = useBreakpoint() // 'mobile' | 'tablet' | 'desktop'

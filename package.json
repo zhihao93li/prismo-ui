@@ -1,7 +1,7 @@
 {
-  "name": "@prismo/ui",
+  "name": "tafu-ui-design",
   "version": "0.1.0",
-  "description": "Prismo Design System - React Component Library with full responsive design",
+  "description": "Tafu Design System - React Component Library with full responsive design",
   "type": "module",
   "main": "./dist/prismo-ui.cjs",
   "module": "./dist/prismo-ui.mjs",
@@ -70,6 +70,7 @@
     "components",
     "ui",
     "design-system",
+    "tafu",
     "prismo",
     "typescript",
     "responsive"
@@ -79,5 +80,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/your-org/prismo-ui"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
