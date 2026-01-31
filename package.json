@@ -3,16 +3,16 @@
   "version": "0.1.0",
   "description": "Tafu Design System - React Component Library with full responsive design",
   "type": "module",
-  "main": "./dist/prismo-ui.cjs",
-  "module": "./dist/prismo-ui.mjs",
+  "main": "./dist/tafu-ui-design.cjs",
+  "module": "./dist/tafu-ui-design.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/prismo-ui.mjs",
-      "require": "./dist/prismo-ui.cjs"
+      "import": "./dist/tafu-ui-design.mjs",
+      "require": "./dist/tafu-ui-design.cjs"
     },
-    "./styles": "./dist/styles.css",
+    "./styles": "./dist/tafu-ui-design.css",
     "./package.json": "./package.json"
   },
   "files": [

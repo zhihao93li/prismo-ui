@@ -19,9 +19,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'PrismoUI',
+      name: 'TafuUI',
       formats: ['es', 'cjs'],
-      fileName: (format) => `prismo-ui.${format === 'es' ? 'mjs' : 'cjs'}`
+      fileName: (format) => `tafu-ui-design.${format === 'es' ? 'mjs' : 'cjs'}`
     },
     rollupOptions: {
       external: [
