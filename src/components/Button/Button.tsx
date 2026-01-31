@@ -7,8 +7,8 @@ type LinkComponent = any
 
 let Link: LinkComponent
 try {
-  const routerDom = require('react-router-dom')
-  Link = routerDom.Link
+  // @ts-ignore - Dynamic import for optional dependency
+  Link = require('react-router-dom').Link
 } catch {
   // react-router-dom not available
 }
@@ -64,7 +64,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
   // React Router Link mode
   if (to && Link && !disabled) {
     return (
-      <Link to={to} className={buttonClass} {...props}>
+      <Link to={to} className={buttonClass} {...(props as any)}>
         {content}
       </Link>
     )
@@ -78,7 +78,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
         className={buttonClass}
         target="_blank"
         rel="noopener noreferrer"
-        {...props}
+        {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {content}
       </a>

@@ -9,9 +9,9 @@ export interface SelectOption {
 
 export interface FormSelectProps {
   label?: string
-  name: string
+  name?: string
   value?: string | number
-  onChange?: (e: { target: { name: string; value: string | number } }) => void
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement> | { target: { name: string; value: string | number } }) => void
   options?: SelectOption[]
   placeholder?: string
   error?: string
@@ -61,7 +61,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
   const selectedOption = options.find(opt => opt.value === value)
 
   const handleSelect = (optionValue: string | number) => {
-    onChange?.({ target: { name, value: optionValue } })
+    onChange?.({ target: { name: name || '', value: optionValue } })
     setIsOpen(false)
   }
 

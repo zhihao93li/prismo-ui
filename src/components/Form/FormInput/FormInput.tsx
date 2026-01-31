@@ -3,7 +3,7 @@ import styles from './FormInput.module.css'
 
 export interface FormInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   label?: string
-  name: string
+  name?: string
   value?: string | number
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   placeholder?: string

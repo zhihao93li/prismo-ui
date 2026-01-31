@@ -10,7 +10,7 @@ export interface ButtonGroupProps {
   options?: ButtonGroupOption[]
   value?: string | number
   onChange?: (e: { target: { name: string; value: string | number } }) => void
-  name: string
+  name?: string
   variant?: 'default' | 'light'
   size?: 'small' | 'medium' | 'large'
   fullWidth?: boolean
@@ -28,7 +28,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   className = '',
 }) => {
   const handleClick = (optionValue: string | number) => {
-    onChange?.({ target: { name, value: optionValue } })
+    onChange?.({ target: { name: name || '', value: optionValue } })
   }
 
   // 计算滑块位置
