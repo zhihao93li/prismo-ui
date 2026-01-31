@@ -1,6 +1,6 @@
 {
   "name": "tafu-ui-design",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tafu Design System - React Component Library with full responsive design",
   "type": "module",
   "main": "./dist/tafu-ui-design.cjs",
@@ -20,10 +20,14 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "sideEffects": [
-    "**/*.css"
+    "*.css",
+    "**/*.css",
+    "./dist/tafu-ui-design.css"
   ],
   "scripts": {
     "dev": "storybook dev -p 6006",

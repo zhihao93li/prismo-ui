@@ -42,8 +42,8 @@ export default defineConfig({
           'react-router-dom': 'ReactRouterDOM'
         },
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'style.css'
-          return assetInfo.name
+          if (assetInfo.name === 'style.css') return 'tafu-ui-design.css'
+          return assetInfo.name || 'assets/[name][extname]'
         }
       }
     },

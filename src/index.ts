@@ -19,7 +19,8 @@ export type { LoadingSpinnerProps, LoadingOverlayProps } from './components/Load
 export type { GradientBackgroundProps } from './components/GradientBackground'
 
 // Hooks
-export { useBreakpoint, useTouchDevice } from './hooks'
+export { useBreakpoint, useMatchBreakpoint, useTouchDevice, usePointerType } from './hooks'
+export type { Breakpoint } from './hooks'
 
-// Styles (users should import this in their main file)
-// import '@prismo/ui/styles'
+// Styles - Import this in your app entry point:
+// import 'tafu-ui-design/styles'
